@@ -13,7 +13,7 @@ In January 2009 we included the bookstudy into the midweek meeting. Before that 
 
 ![Bookstudy graph](docs/bookstudy_graph.svg)
 
-**Explanation:** Blue is a book, green is a brochure. The red books are used to support bible studies we conduct. In order to have each publisher be familiar with the current tool we study each part together in our midweek meetings. Some publications have been studied more than once, indicated by a darker blue:
+**Explanation:** <span style="color:blue">Blue is a book</span>, <span style="color:green">green is a brochure</span>. The <span style="color:red">red books</span> are used to support bible studies we conduct. In order to have each publisher be familiar with the current tool we study each part together in our midweek meetings. Some publications have been studied more than once, indicated by a darker blue:
 
 - 4x Revelation​—Its Grand Climax At Hand! (1989, 1991, 1994, 2007)
 - 2x The Bible​—God’s Word or Man’s? (1990, 1998)
