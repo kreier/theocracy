@@ -3,7 +3,7 @@
 ![GitHub License](https://img.shields.io/github/license/kreier/theocracy)
 ![GitHub Release](https://img.shields.io/github/v/release/kreier/theocracy)
 
-Loose collection of organizational bits and study projects.
+Loose collection of organizational bits and study projects. [Link to github project](https://github.com/kreier/theocracy)
 
 ## Bookstudy
 
