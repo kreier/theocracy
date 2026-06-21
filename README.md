@@ -92,3 +92,11 @@ Should be 15 minutes. If it is 3 parts with combined 12 minutes (see below) ther
 - 5 minutes song
 - 15 minutes unique part, review, Governing Body Update
 - 30 minutes: Congregation Bible Study
+
+## Other repositories
+
+- [Timeline](https://kreier.github.io/timeline) - [repository](https://github.com/kreier/timeline)
+- [Tripitaka investigation - size and content](https://kreier.github.io/tripitaka) - [repository](https://github.com/kreier/tripitaka)
+- [Maintenance PNT THD](https://kreier.github.io/pnt-thd) - [repository](https://github.com/kreier/pnt-thd)
+- [Details on 9 Volt battery for wireless microphones](https://kreier.github.io/beston-9volt-battery/) - [repository](https://github.com/kreier/beston-9volt-battery)
+
