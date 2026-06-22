@@ -5,6 +5,11 @@
 
 Loose collection of organizational bits and study projects. [Link to github project](https://github.com/kreier/theocracy)
 
+## Subpages
+
+- [Bookstudy](bookstudy)
+- [Timeline](timeline)
+
 ## Bookstudy
 
 I joined the bookstudy in private homes as one hour session in addition to the midweek meeting and weekend meeting in the 1980s. Most of the time we studied a book, but sometimes we also considered a brochure. With opening and closing prayer the time was about 55 minutes. 
@@ -95,8 +100,9 @@ Should be 15 minutes. If it is 3 parts with combined 12 minutes (see below) ther
 
 ## Other repositories
 
-- [Timeline](https://kreier.github.io/timeline) - [repository](https://github.com/kreier/timeline)
-- [Tripitaka investigation - size and content](https://kreier.github.io/tripitaka) - [repository](https://github.com/kreier/tripitaka)
+- [Timeline of Human History the last 6000 years](https://kreier.github.io/timeline) - [repository](https://github.com/kreier/timeline)
+- [The Promised Offspring - Chart A3 and A2](https://kreier.github.io/promised-offspring) - [repository](https://github.com/kreier/promised-offspring)
+- [Investigation of the Tripitaka - size and content](https://kreier.github.io/tripitaka) - [repository](https://github.com/kreier/tripitaka)
 - [Maintenance PNT THD](https://kreier.github.io/pnt-thd) - [repository](https://github.com/kreier/pnt-thd)
 - [Details on 9 Volt battery for wireless microphones](https://kreier.github.io/beston-9volt-battery/) - [repository](https://github.com/kreier/beston-9volt-battery)
 
