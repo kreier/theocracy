@@ -49,27 +49,7 @@ def convert_to_markdown_table(input_file, output_file, link_column_text="Link"):
 
 # --- HOW TO USE IT ---
 if __name__ == "__main__":
-    # Example 1: Converting an Excel File
-    # convert_to_markdown_table('my_data.xlsx', 'excel_output.md', link_column_text="Visit Site")
-
-    # Example 2: Converting a CSV File
-    # Create a dummy CSV file to test the code right away
-    test_data = {
-        "Website Name": ["Google", "GitHub", "Python"],
-        "Description": [
-            "Search Engine",
-            "Code Hosting",
-            "Programming Language",
-        ],
-        "URL": [
-            "https://www.google.com",
-            "https://github.com",
-            "https://www.python.org",
-        ],
-    }
-    pd.DataFrame(test_data).to_csv("test_input.csv", index=False)
-
     # Convert the test CSV file to Markdown
     convert_to_markdown_table(
-        "test_input.csv", "final_output.md", link_column_text="Open Link"
+        "../bookstudy.xlsx", "excel_output.md", link_column_text="Visit Site"
     )
