@@ -2,58 +2,81 @@ import os
 import pandas as pd
 
 
-def convert_to_markdown_table(
-    input_file, output_file, link_column_text="Link", date_columns=None
-):
-    """Converts an Excel or CSV file into a Markdown table with hyperlinks and formatted dates.
+import os
+import openpyxl
+import pandas as pd
 
-    :param input_file: Path to the .xlsx or .csv file.
-    :param output_file: Path where the .md file should be saved.
-    :param link_column_text: The anchor text to display for URLs.
-    :param date_columns: A list of column names that contain dates (e.g.,
-    ['Created Date', 'Deadline']).
+
+def convert_to_markdown_table(input_file, output_file, link_column_text=None, date_columns=None):
+    """Converts an Excel or CSV file into a Markdown table.
+
+    Properly extracts hidden/embedded Excel hyperlinks.
     """
-    # 1. Detect file type and load into a Pandas DataFrame
     file_ext = os.path.splitext(input_file)[1].lower()
 
     if file_ext == ".csv":
+        # CSVs can't hide hyperlinks (they are always just text strings)
         df = pd.read_csv(input_file)
+
+        # Apply standard URL text conversion for CSVs
+        def make_markdown_link(cell_value):
+            if isinstance(cell_value, str) and (
+                cell_value.startswith("http://")
+                or cell_value.startswith("https://")
+            ):
+                display_text = (
+                    link_column_text if link_column_text else cell_value
+                )
+                return f"[{display_text}]({cell_value})"
+            return cell_value
+
+        df = df.map(make_markdown_link)
+
     elif file_ext in [".xlsx", ".xls"]:
-        df = pd.read_excel(input_file)
+        # Use openpyxl directly to catch the hidden hyperlink metadata
+        wb = openpyxl.load_workbook(input_file, data_only=False)
+        ws = wb.active  # Grabs the first sheet
+
+        data = []
+        # Loop through all rows in the Excel sheet
+        for row in ws.iter_rows():
+            row_data = []
+            for cell in row:
+                # Check if the cell has an embedded hyperlink object
+                if cell.hyperlink and cell.hyperlink.target:
+                    url = cell.hyperlink.target
+                    # Use the cell's visible text as the anchor text
+                    # (Fallback to custom text if link_column_text is provided)
+                    display_text = (
+                        link_column_text if link_column_text else str(cell.value)
+                    )
+                    row_data.append(f"[{display_text}]({url})")
+                else:
+                    row_data.append(cell.value)
+            data.append(row_data)
+
+        # Convert the parsed openpyxl rows into a Pandas DataFrame
+        # First row becomes the header
+        df = pd.DataFrame(data[1:], columns=data[0])
+
     else:
         raise ValueError("Unsupported file format. Please use .csv or .xlsx")
 
     # 2. Format Date Columns to YYYY-MM-DD
-    # Explicitly convert columns requested by the user (great for CSVs)
     if date_columns:
         for col in date_columns:
             if col in df.columns:
                 df[col] = pd.to_datetime(df[col], errors="coerce")
 
-    # Automatically catch columns that Excel already flagged as datetime
     for col in df.columns:
         if pd.api.types.is_datetime64_any_dtype(df[col]):
-            # .dt.strftime('%Y-%m-%d') forces the exact YYYY-MM-DD format
             df[col] = df[col].dt.strftime("%Y-%m-%d")
 
-    # 3. Clean data: Fill NaN/Empty values with empty strings
+    # 3. Clean remaining NaN/Empty values
     df = df.fillna("")
 
-    # 4. Convert raw URLs into Markdown hyperlinks
-    def make_markdown_link(cell_value):
-        if isinstance(cell_value, str) and (
-            cell_value.startswith("http://")
-            or cell_value.startswith("https://")
-        ):
-            return f"[{link_column_text}]({cell_value})"
-        return cell_value
-
-    df = df.map(make_markdown_link)
-
-    # 5. Convert the DataFrame to a Markdown Table string
+    # 4. Save to Markdown
     markdown_table = df.to_markdown(index=False)
-
-    # 6. Save to file
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(markdown_table)
 
@@ -62,7 +85,8 @@ def convert_to_markdown_table(
 
 # --- HOW TO USE IT ---
 if __name__ == "__main__":
-    # Convert the test CSV file to Markdown
+    # Convert the xlsx file to Markdown
     convert_to_markdown_table(
-        "../bookstudy.xlsx", "excel_output.md", link_column_text="Visit Site"
-    )
+        input_file="../bookstudy.xlsx",
+        output_file="excel_output.md",
+    )    
