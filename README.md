@@ -10,6 +10,21 @@ Loose collection of organizational bits and study projects. [Link to github proj
 - [Bookstudy](bookstudy)
 - [Timeline](timeline)
 
+## Tools
+
+- [JW Library Backup Merger](https://kreier.github.io/jwlibrary-merge-web/) ![GitHub Release](https://img.shields.io/github/v/release/kreier/jwlibrary-merge-web) created by [JWCow](https://github.com/JWCow)
+- [PNT THD](https://github.com/kreier/pnt-thd) ![GitHub Release](https://img.shields.io/github/v/release/kreier/pnt-thd) Some maintainance information for 345/47
+- [Account](https://github.com/kreier/account) ![GitHub Release](https://img.shields.io/github/v/release/kreier/account) Automated accounting from simple Google Sheets to create S-26, S-30 and TO-62 locally with Python.
+
+
+## Personal Study
+
+- [Timeline](https://github.com/kreier/timeline) [![GitHub release](https://img.shields.io/github/release/kreier/timeline.svg)](https://GitHub.com/kreier/timeline/releases/) An overview of the human history as a graph in a pdf file.
+- [Timeline24](https://timeline24.github.io/) downloadable PDF files
+- [The Promised Offspring](https://github.com/kreier/promised-offspring) ![GitHub Release](https://img.shields.io/github/v/release/kreier/promised-offspring) Visualizing the lineage of Jesus, starting with Adam and connecting families and prophecies.
+- [Study](https://github.com/kreier/study) [![GitHub release](https://img.shields.io/github/release/kreier/study.svg)](https://GitHub.com/kreier/study/releases/) A compilation and documentation of some highlights from study projects related to the bible.
+- [Tripitaka](https://github.com/kreier/tripitaka) [![GitHub release](https://img.shields.io/github/release/kreier/tripitaka.svg)](https://GitHub.com/kreier/tripitaka/releases/) Get some statistics on the text of the Tripitaka. Make it searchable for phrases.
+
 ## Bookstudy
 
 I joined the bookstudy in private homes as one hour session in addition to the midweek meeting and weekend meeting in the 1980s. Most of the time we studied a book, but sometimes we also considered a brochure. With opening and closing prayer the time was about 55 minutes. 
